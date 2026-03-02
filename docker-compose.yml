@@ -1,0 +1,15 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: kbqa_db
+    environment:
+      POSTGRES_USER: kbqa
+      POSTGRES_PASSWORD: kbqa
+      POSTGRES_DB: kbqa
+    ports:
+      - "5433:5432"
+    volumes:
+      - kbqa_pgdata:/var/lib/postgresql/data
+
+volumes:
+  kbqa_pgdata:
